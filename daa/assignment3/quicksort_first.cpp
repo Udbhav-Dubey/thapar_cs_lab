@@ -1,20 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 int partition(vector<int>&arr,int left,int right){
-    int pivot=arr[right];
     int i=left-1;
-    for (int j=left;j<right;j++){
-        if (arr[j]<=pivot){
-            i++;
-            swap(arr[j],arr[i]);
-        }
+    int j=right+1;
+    int pivot=arr[0];
+    while(true){
+        do{i++;}
+        while(arr[i]<pivot);
+        do{j--;}
+        while(arr[j]>pivot);
+        if(i>=j){return j;}
+        swap(arr[i],arr[j]);
     }
-        swap(arr[i+1],arr[right]);
-        return i+1;
 }
 void quickingsort(vector<int>&arr,int left,int right){
     if (left>=right){return;}
-    int pivot=partition(arr,left,right);
+    int pi=partition(arr,left,right);
+    quickingsort(arr,left,pi-1);
+    quickingsort(arr,pi+1,right);
 }
 void printin(vector<int>&arr){
     for (int i=0;i<arr.size();i++){

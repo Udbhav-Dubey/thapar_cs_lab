@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 int partition(vector<int>&arr,int left,int right){
+    int rpivot=left+rand()%(right-left+1);
+    swap(arr[rpivot],arr[right]);
     int pivot=arr[right];
     int i=left-1;
     for (int j=left;j<right;j++){
@@ -14,7 +16,9 @@ int partition(vector<int>&arr,int left,int right){
 }
 void quickingsort(vector<int>&arr,int left,int right){
     if (left>=right){return;}
-    int pivot=partition(arr,left,right);
+    int pi=partition(arr,left,right);
+    quickingsort(arr,left,pi-1);
+    quickingsort(arr,pi+1,right);
 }
 void printin(vector<int>&arr){
     for (int i=0;i<arr.size();i++){
