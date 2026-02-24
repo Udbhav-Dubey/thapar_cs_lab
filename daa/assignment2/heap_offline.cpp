@@ -24,12 +24,12 @@ void buildHeap(vector<int>& arr) {
 }
 int main() {
     vector<int> arr = {12, 11, 13, 6, 7};
-    cout << "Original array: ";
+    cout << "array: ";
     for (int i = 0; i < arr.size(); i++) {
         cout << arr[i] << " ";
     }
     buildHeap(arr);
-    cout << "\nAfter building heap: ";
+    cout << "\n building heap: ";
     for (int i = 0; i < arr.size(); i++) {
         cout << arr[i] << " ";
     }
@@ -40,14 +40,14 @@ int main() {
         swap(arr[i], arr[(i - 1)/2]);
         i = (i - 1)/2;
     }
-    cout << "\nAfter insertion: ";
+    cout << "\ninsertion: ";
     for (int i = 0; i < arr.size(); i++) {
         cout << arr[i] << " ";
     }
     arr[0] = arr.back();   
     arr.pop_back();       
     heapify(arr, arr.size(), 0);
-    cout << "\nAfter deletion: ";
+    cout << "\ndeletion: ";
     for (int i = 0; i < arr.size(); i++) {
         cout << arr[i] << " ";
     }

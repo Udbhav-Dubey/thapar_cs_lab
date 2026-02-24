@@ -18,8 +18,20 @@ class square:public Numb{
         return gn()*gn();
     }
 };
+class cube:public Numb{
+    public:
+        cube(int n):Numb(n){};
+        long long c_val(){
+        return gn()*gn()*gn();
+        }
+};
 int main(){
-    square sq(10);
-    cout << sq.val()<<"\n";
+    int n;
+    cout << "enter the number\n";
+    cin>> n;
+    square sq(n);
+    cube cu(n);
+    cout << "square : "<< sq.val()<<"\n";
+    cout << "cube : "<< cu.c_val() << "\n";
     return 0;
 }
