@@ -2,17 +2,17 @@
 using namespace std;
 class Solution {
 public:
-    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newinterval) {
         int n=intervals.size();
         vector<vector<int>>ans;
-        if (n==0){return {newInterval};}
+        if (n==0){return {newinterval};}
         int i=0;
-        while(i<n&&intervals[i][1]<newInterval[0]){
+        while(i<n&&intervals[i][1]<newinterval[0]){
             vector<int>temp={intervals[i][0],intervals[i][1]};
             ans.push_back(temp);
             i++;
         }
-        vector<int>t1=newInterval;
+        vector<int>t1=newinterval;
         while(i<n&&intervals[i][0]<=t1[1]){
             t1[0]=min(t1[0],intervals[i][0]);
             t1[1]=max(t1[1],intervals[i][1]);

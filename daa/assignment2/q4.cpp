@@ -1,12 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define MAX 100
-
 struct CircularQueue {
     int arr[MAX];
     int front, rear, size;
     CircularQueue(int sz=5){ size=sz; front=rear=-1; }
-
     void insert(int val) {
         if((front==0 && rear==size-1) || (rear==(front-1)%(size-1))) {
             cout << "Queue Overflow\n";
@@ -49,7 +47,6 @@ struct CircularQueue {
         }
     }
 };
-
 int main() {
     int qsize;
     cout << "Enter circular queue size (up to 100): ";
@@ -69,4 +66,3 @@ int main() {
     }
     return 0;
 }
-
