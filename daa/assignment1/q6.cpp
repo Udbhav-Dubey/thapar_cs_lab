@@ -28,6 +28,7 @@ int median(vector<int>&arr){
         }
         else {return arr[target];}
     }
+    return -1;
 }
 int main (){
     srand(time(0));
@@ -39,7 +40,7 @@ int main (){
     for (int i=0;i<n;i++){
         cin>>arr[i];
     }
-    cout << endl <<median(arr) << endl;
+    cout <<median(arr) << endl;
 
     return 0;
 }

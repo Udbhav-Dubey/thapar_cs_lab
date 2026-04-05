@@ -3,7 +3,7 @@ using namespace std;
 int partition(vector<int>&arr,int left,int right){
     int i=left-1;
     int j=right+1;
-    int pivot=arr[0];
+    int pivot=arr[left];
     while(true){
         do{i++;}
         while(arr[i]<pivot);
@@ -16,7 +16,7 @@ int partition(vector<int>&arr,int left,int right){
 void quickingsort(vector<int>&arr,int left,int right){
     if (left>=right){return;}
     int pi=partition(arr,left,right);
-    quickingsort(arr,left,pi-1);
+    quickingsort(arr,left,pi);
     quickingsort(arr,pi+1,right);
 }
 void printin(vector<int>&arr){
