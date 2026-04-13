@@ -1,26 +1,20 @@
 #include <iostream>
 #include <vector>
-
 using namespace std;
-
 class BankersAlgorithm {
-    int n, m; // n = processes, m = resource types
+    int n, m; 
     vector<vector<int>> alloc, max, need;
     vector<int> avail;
-
 public:
     void input() {
         cout << "Enter number of processes: "; cin >> n;
         cout << "Enter number of resource types: "; cin >> m;
-
         alloc.assign(n, vector<int>(m));
         max.assign(n, vector<int>(m));
         need.assign(n, vector<int>(m));
         avail.assign(m, 0);
-
         cout << "Enter Allocation Matrix:\n";
         for(int i=0; i<n; i++) for(int j=0; j<m; j++) cin >> alloc[i][j];
-
         cout << "Enter Max Matrix:\n";
         for(int i=0; i<n; i++) {
             for(int j=0; j<m; j++) {
@@ -28,16 +22,13 @@ public:
                 need[i][j] = max[i][j] - alloc[i][j];
             }
         }
-
         cout << "Enter Available Resources: ";
         for(int i=0; i<m; i++) cin >> avail[i];
     }
-
     bool isSafe() {
         vector<int> work = avail;
         vector<bool> finish(n, false);
         vector<int> safeSeq;
-
         for (int k = 0; k < n; k++) {
             bool found = false;
             for (int p = 0; p < n; p++) {
@@ -45,7 +36,6 @@ public:
                     int j;
                     for (j = 0; j < m; j++)
                         if (need[p][j] > work[j]) break;
-
                     if (j == m) {
                         for (int i = 0; i < m; i++) work[i] += alloc[p][i];
                         safeSeq.push_back(p);
@@ -68,7 +58,6 @@ public:
         }
     }
 };
-
 int main() {
     BankersAlgorithm ba;
     int choice;

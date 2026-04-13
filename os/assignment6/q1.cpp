@@ -1,10 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 struct process{
     int pid,bt,at,pr,rt,ct,wt,tat;
 };
-
 void priority_non_preemptive(){
     int n;
     cout<<"enter number of processes:\n";

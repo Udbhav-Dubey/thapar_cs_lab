@@ -14,6 +14,15 @@ int knap(vector<int>&wt,vector<int>&profit,int cap){
             }
         }
     }
+   cout << "dp table\n";
+    for (int i=0;i<=n;i++){
+        for (int j=0;j<=cap;j++){
+            cout << dp[i][j] << " ";
+        }
+        cout << "\n";
+    }
+    cout << "answer\n";
+  
     return dp[n][cap];
 
 }

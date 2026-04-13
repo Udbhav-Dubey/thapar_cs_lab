@@ -10,6 +10,14 @@ int knap(vector<int>&wt,vector<int>&profit,int cap){
             dp[i][j]=max(dp[i-1][j],dp[i-1][j-wt[i-1]]+profit[i-1]);
         }
     }
+    cout << "dp table\n";
+    for (int i=0;i<=n;i++){
+        for (int j=0;j<=cap;j++){
+            cout << dp[i][j] << " ";
+        }
+        cout << "\n";
+    }
+    cout << "answer\n";
     return dp[n][cap];
 }
 int main (){
