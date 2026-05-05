@@ -7,7 +7,7 @@ public:
         int left_sum=0;
         int right_sum=0;
         int mid=left+(right-left)/2;
-        for (int i=mid-1,curr_sum=0;i>=left;i++){
+        for (int i=mid-1,curr_sum=0;i>=left;i--){
             curr_sum+=nums[i];
             left_sum=max(curr_sum,left_sum);
         }

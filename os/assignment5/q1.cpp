@@ -1,44 +1,34 @@
 #include<bits/stdc++.h>
 using namespace std;
-
 struct process{
     int pid,at,bt,rt,ct,wt,tat;
 };
-
 void fcfs(){
     int n;
     cout<<"enter number of processes:\n";
     cin>>n;
-
     process p[100];
-
     for(int i=0;i<n;i++){
         p[i].pid=i+1;
         cout<<"enter arrival time and burst time:\n";
         cin>>p[i].at>>p[i].bt;
     }
-
     sort(p,p+n,[](process a,process b){
         return a.at<b.at;
     });
-
     int time=0;
-
     for(int i=0;i<n;i++){
         if(time<p[i].at) time=p[i].at;
-
         time+=p[i].bt;
         p[i].ct=time;
         p[i].tat=p[i].ct-p[i].at;
         p[i].wt=p[i].tat-p[i].bt;
     }
-
     cout<<"pid ct tat wt\n";
     for(int i=0;i<n;i++){
         cout<<p[i].pid<<" "<<p[i].ct<<" "<<p[i].tat<<" "<<p[i].wt<<"\n";
     }
 }
-
 void sjf_non_preemptive(){
     int n;
     cout<<"enter number of processes:\n";
@@ -141,7 +131,7 @@ int main(){
     int ch;
 
     while(1){
-        cout<<"\n1.fcfs\n2.sjf non preemptive\n3.sjf preemptive\n4.exit\n";
+        cout<<"\n1.fcfs\n2.sjf non preemptive\n3.sjf preemptive\n4.exist\n";
         cin>>ch;
 
         if(ch==1) fcfs();

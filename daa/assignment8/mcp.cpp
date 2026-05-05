@@ -6,7 +6,6 @@ public:
     int mcm(vector<int>& a){
         int n=a.size()-1;
         vector<vector<int>>dp(n+1,vector<int>(n+1,0));
-        
         for (int len=2;len<=n;len++){
             for (int i=1;i<=n-len+1;i++){
                 int j=i+len-1;
